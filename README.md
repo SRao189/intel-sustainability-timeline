@@ -1,50 +1,15 @@
-# Intel Sustainability Timeline
+# Intel's Climate Promises, Checked
 
-This project is a standalone, static assignment site built for GitHub Pages deployment. It presents Intel-inspired sustainability milestones in a responsive timeline layout.
+A data case study: Intel's five public sustainability deadlines (2030, 2040, 2050) set against Intel's own reported figures for 2021–2025, with one plain status per goal.
 
-## Files
+Live: https://srao189.github.io/intel-sustainability-timeline/
 
-- `index.html` - page structure and milestone content
-- `styles.css` - layout, theme, responsive behavior, hover transitions, and scroll snap
-- `script.js` - small accessibility enhancement for timeline card hint text
-- `assets/` - local SVG milestone visuals
-- `RUBRIC_CHECKLIST.md` - rubric completion audit
-- `REFLECTION_QUESTIONS.md` - reflection prompts for the written submission
+- Every yearly number comes from the performance data table in Intel's [2025-26 Corporate Responsibility Report executive summary](https://csrreportbuilder.intel.com/pdfbuilder/pdfs/CSR-2025-26-Executive-Summary.pdf#page=9). The one computed figure (a 48% rise in emissions, 2023–2025) is labeled on the page.
+- Charts are drawn by `script.js` from the data table inside each figure; the tables stay in the page for screen readers and readers without JavaScript.
+- No dependencies, no build step. The font (Archivo, SIL Open Font License) is self-hosted so the strict Content-Security-Policy needs no outside origins.
 
-## Local Preview
+Preview locally with `python -m http.server 8000` and open http://127.0.0.1:8000/.
 
-From this folder, run:
+This began as a class assignment. The graded version is preserved at the [`submitted-original`](https://github.com/SRao189/intel-sustainability-timeline/tree/submitted-original) tag, together with its `RUBRIC_CHECKLIST.md` and `REFLECTION_QUESTIONS.md`.
 
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://127.0.0.1:8000/
-```
-
-## GitHub Pages
-
-This project is ready for GitHub Pages as a root-level static site.
-
-Recommended deployment setup:
-
-1. Push this folder to a GitHub repository.
-2. In the repository settings, enable GitHub Pages.
-3. Set the source to:
-   - Branch: `main`
-   - Folder: `/ (root)`
-4. Your published URL will follow this pattern:
-
-```text
-https://USERNAME.github.io/REPOSITORY-NAME/
-```
-
-All asset references use relative paths, so the site will work under a repository subpath.
-
-## Notes
-
-- This is an educational project and not an official Intel website.
-- The timeline visuals are custom local SVG assets created for the assignment.
+Independent student project; not affiliated with or endorsed by Intel.

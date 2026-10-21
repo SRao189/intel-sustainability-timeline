@@ -3,217 +3,247 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; frame-src 'none'; upgrade-insecure-requests" />
-    <title>Intel Sustainability Timeline</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'none'; upgrade-insecure-requests" />
+    <title>Intel's Climate Promises, Checked</title>
     <meta
       name="description"
-      content="An interactive student-built timeline exploring Intel's sustainability priorities and long-term environmental goals."
+      content="Intel's public sustainability goals set against its own reported data, 2021–2025: one honest status per goal, every number sourced."
     />
+    <meta name="theme-color" content="#f2b33d" />
+    <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <a class="skip-link" href="#timeline">Skip to timeline</a>
+    <a class="skip-link" href="#goals">Skip to the goals</a>
 
-    <header class="site-header">
-      <nav class="topbar" aria-label="Primary">
-        <a class="brand" href="#top">
-          <span class="brand-mark" aria-hidden="true">I</span>
-          <span class="brand-text">
-            <span class="brand-name">Intel Sustainability Timeline</span>
-            <span class="brand-subtitle">Student interactive project</span>
-          </span>
-        </a>
-        <div class="topbar-links">
-          <a href="#timeline">Timeline</a>
-          <a href="#approach">Approach</a>
-          <a href="#footer">Disclaimer</a>
-        </div>
-      </nav>
-
-      <section class="hero" id="top">
-        <div class="hero-copy">
-          <p class="eyebrow">Interactive Web Experience</p>
-          <h1>Intel's sustainability goals, mapped as a responsive timeline.</h1>
-          <p class="hero-text">
-            This page presents major sustainability focus areas through a flexible,
-            touch-friendly timeline that shifts from horizontal exploration on larger
-            screens to a clear vertical reading flow on smaller devices.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#timeline">Explore Timeline</a>
-            <a class="button button-secondary" href="#approach">See the Layout</a>
-          </div>
-        </div>
-        <div class="hero-panel" aria-hidden="true">
-          <div class="hero-orbit hero-orbit-large"></div>
-          <div class="hero-orbit hero-orbit-small"></div>
-          <div class="hero-grid"></div>
-          <div class="hero-card">
-            <span class="hero-card-label">Focus Areas</span>
-            <strong>Energy</strong>
-            <strong>Water</strong>
-            <strong>Waste</strong>
-            <strong>Climate</strong>
-          </div>
-        </div>
-      </section>
+    <header class="masthead">
+      <div class="masthead-inner">
+        <p class="masthead-title">Intel's climate promises, checked</p>
+        <p class="masthead-byline">A data case study by <a href="https://github.com/SRao189">Sahar Rao</a></p>
+      </div>
     </header>
 
-    <main>
-      <section class="section-intro" id="approach">
-        <div>
-          <p class="section-label">Responsive layout</p>
-          <h2>Built to read like a story, not a spreadsheet.</h2>
-        </div>
-        <p>
-          Each milestone card highlights a year, title, and visual by default.
-          Additional details appear smoothly on hover and keyboard focus, while
-          the same content remains accessible on touch devices through the card
-          summary control.
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-inner">
+        <h1 id="hero-heading">Intel set five climate deadlines. One is nearly met.</h1>
+        <p class="hero-lead">
+          In May 2020 Intel set public goals for clean power, water and waste, then added net-zero
+          emissions deadlines for 2040 and 2050. Below, each goal sits against Intel's own reported
+          numbers for 2021–2025.
         </p>
-      </section>
 
-      <section class="timeline-section" id="timeline" aria-labelledby="timeline-heading">
-        <div class="section-heading">
-          <p class="section-label">Timeline</p>
-          <h2 id="timeline-heading">Key sustainability milestones and long-term targets</h2>
+        <figure class="ruler" aria-labelledby="ruler-caption">
+          <div class="ruler-scroll" tabindex="0" role="region" aria-label="Timeline, scrolls sideways on small screens">
+            <svg class="ruler-svg" viewBox="0 0 1000 214" role="img" aria-labelledby="ruler-title ruler-desc">
+              <title id="ruler-title">Intel sustainability deadlines on a to-scale timeline, 2006 to 2050</title>
+              <desc id="ruler-desc">Emissions peaked in 2006. Goals were set in 2020. Reported data covers 2021 to 2025. Water, waste and renewable electricity goals fall due in 2030, net-zero Scope 1 and 2 emissions in 2040, and net-zero upstream Scope 3 emissions in 2050.</desc>
+              <rect class="ruler-band" x="360" y="92" width="80" height="30" />
+              <text class="ruler-band-label" x="400" y="140" text-anchor="middle">Data on this page</text>
+              <line class="ruler-axis" x1="60" y1="107" x2="940" y2="107" />
+              <g class="ruler-ticks">
+                <line x1="60" y1="101" x2="60" y2="113" />
+                <line x1="160" y1="101" x2="160" y2="113" />
+                <line x1="260" y1="101" x2="260" y2="113" />
+                <line x1="360" y1="101" x2="360" y2="113" />
+                <line x1="460" y1="101" x2="460" y2="113" />
+                <line x1="560" y1="101" x2="560" y2="113" />
+                <line x1="660" y1="101" x2="660" y2="113" />
+                <line x1="760" y1="101" x2="760" y2="113" />
+                <line x1="860" y1="101" x2="860" y2="113" />
+              </g>
+              <g class="ruler-years">
+                <text x="160" y="170" text-anchor="middle">2011</text>
+                <text x="260" y="170" text-anchor="middle">2016</text>
+                <text x="660" y="170" text-anchor="middle">2036</text>
+                <text x="860" y="170" text-anchor="middle">2046</text>
+              </g>
+
+              <g class="ruler-event">
+                <line x1="60" y1="62" x2="60" y2="98" />
+                <circle cx="60" cy="107" r="6" />
+                <text x="60" y="34" class="ruler-year">2006</text>
+                <text x="60" y="52">Emissions peak</text>
+              </g>
+              <g class="ruler-event">
+                <line x1="340" y1="62" x2="340" y2="98" />
+                <circle cx="340" cy="107" r="6" />
+                <text x="340" y="34" class="ruler-year" text-anchor="end">2020</text>
+                <text x="340" y="52" text-anchor="end">Goals set</text>
+              </g>
+              <g class="ruler-event ruler-today">
+                <line x1="476" y1="62" x2="476" y2="98" />
+                <circle cx="476" cy="107" r="6" />
+                <text x="482" y="34" class="ruler-year">Today</text>
+                <text x="482" y="52">Oct 2026</text>
+              </g>
+              <g class="ruler-event ruler-deadline">
+                <path d="M540 97 l10 10 l-10 10 l-10 -10z" />
+                <text x="540" y="190" class="ruler-year" text-anchor="middle">2030</text>
+                <text x="540" y="208" text-anchor="middle">Power, water, waste</text>
+              </g>
+              <g class="ruler-event ruler-deadline">
+                <path d="M740 97 l10 10 l-10 10 l-10 -10z" />
+                <text x="740" y="190" class="ruler-year" text-anchor="middle">2040</text>
+                <text x="740" y="208" text-anchor="middle">Net-zero Scope 1 + 2</text>
+              </g>
+              <g class="ruler-event ruler-deadline">
+                <line x1="940" y1="62" x2="940" y2="96" />
+                <path d="M940 97 l10 10 l-10 10 l-10 -10z" />
+                <text x="940" y="34" class="ruler-year" text-anchor="end">2050</text>
+                <text x="940" y="52" text-anchor="end">Net-zero upstream Scope 3</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption id="ruler-caption">Drawn to scale: one tick every five years.<span class="swipe-hint"> Swipe to see through 2050.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <main id="goals">
+      <section class="goal" aria-labelledby="g-power">
+        <div class="goal-text">
+          <p class="goal-due">Due 2030</p>
+          <h2 id="g-power">100% renewable electricity</h2>
+          <p class="status status-near"><span class="status-mark" aria-hidden="true"></span>One point short: 99% in 2025.</p>
           <p>
-            On desktop, scroll horizontally through the timeline. On tablet and mobile,
-            the cards stack vertically for easier reading.
+            The jump came early, from 80% in 2021 to 99% by 2023. In 2025 Intel reported 100%
+            renewable electricity at its U.S., Europe, Israel, Malaysia, Vietnam and China
+            locations, with Costa Rica at 97%.
           </p>
         </div>
+        <figure class="chart" data-chart data-goal="100" data-goal-label="Goal: 100%" data-max="100" data-unit="%">
+          <table>
+            <caption>Renewable electricity, % of global electricity use</caption>
+            <thead><tr><th scope="col">Year</th><th scope="col">Share</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">2021</th><td>80</td></tr>
+              <tr><th scope="row">2022</th><td>93</td></tr>
+              <tr><th scope="row">2023</th><td>99</td></tr>
+              <tr><th scope="row">2024</th><td>98</td></tr>
+              <tr><th scope="row">2025</th><td>99</td></tr>
+            </tbody>
+          </table>
+        </figure>
+      </section>
 
-        <div class="timeline-shell">
-          <div class="timeline-track" role="list" aria-label="Intel sustainability milestones">
-            <details class="timeline-card" role="listitem">
-              <summary>
-                <span class="card-year">2020</span>
-                <h3>RISE strategy establishes the roadmap</h3>
-                <div class="card-image-frame">
-                  <img
-                    src="assets/rise-strategy.svg"
-                    alt="Abstract blue illustration representing a sustainability roadmap and connected global goals."
-                  />
-                </div>
-                <p class="card-teaser">
-                  Intel frames sustainability as a long-range operating priority.
-                </p>
-                <span class="card-hint">Hover or tap for more</span>
-              </summary>
-              <div class="card-panel">
-                <p>
-                  Intel's RISE framework grouped responsibility, inclusion,
-                  sustainability, and technology leadership into a clearer public plan.
-                  It gave later environmental goals a structure that could be tracked
-                  over time.
-                </p>
-              </div>
-            </details>
+      <section class="goal" aria-labelledby="g-waste">
+        <div class="goal-text">
+          <p class="goal-due">Due 2030</p>
+          <h2 id="g-waste">Zero waste to landfill</h2>
+          <p class="status status-gap"><span class="status-mark" aria-hidden="true"></span>Three times the limit: 3% in 2025.</p>
+          <p>
+            Intel counts "zero" as less than 1% of total waste going to landfill. The share fell
+            from 6% in 2022 and 2023 to 3% in 2025, while total waste dropped from 344 to 249
+            thousand tons over the five years.
+          </p>
+        </div>
+        <figure class="chart" data-chart data-goal="1" data-goal-label="Limit: under 1%" data-max="7" data-unit="%">
+          <table>
+            <caption>Share of total waste sent to landfill, %</caption>
+            <thead><tr><th scope="col">Year</th><th scope="col">Share</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">2021</th><td>5</td></tr>
+              <tr><th scope="row">2022</th><td>6</td></tr>
+              <tr><th scope="row">2023</th><td>6</td></tr>
+              <tr><th scope="row">2024</th><td>4</td></tr>
+              <tr><th scope="row">2025</th><td>3</td></tr>
+            </tbody>
+          </table>
+        </figure>
+      </section>
 
-            <details class="timeline-card" role="listitem">
-              <summary>
-                <span class="card-year">2022</span>
-                <h3>Renewable electricity becomes a visible priority</h3>
-                <div class="card-image-frame">
-                  <img
-                    src="assets/renewable-energy.svg"
-                    alt="Stylized illustration of solar panels and a wind turbine in Intel blue tones."
-                  />
-                </div>
-                <p class="card-teaser">
-                  Cleaner electricity sourcing becomes central to facility operations.
-                </p>
-                <span class="card-hint">Hover or tap for more</span>
-              </summary>
-              <div class="card-panel">
-                <p>
-                  A strong renewable-energy focus supports lower operational emissions
-                  and connects Intel's manufacturing footprint to broader clean-energy
-                  adoption.
-                </p>
-              </div>
-            </details>
+      <section class="goal" aria-labelledby="g-water">
+        <div class="goal-text">
+          <p class="goal-due">Due 2030</p>
+          <h2 id="g-water">Net positive water</h2>
+          <p class="status status-partial"><span class="status-mark" aria-hidden="true"></span>Over 100% globally, but the goal is counted country by country.</p>
+          <p>
+            Net positive means water returned and restored exceeds fresh water consumed. The global
+            total has stayed above 100% since 2022, but Intel says the goal is met only when each
+            country hits its own target. For 2025 it reports net positive water in the U.S., India
+            and Costa Rica.
+          </p>
+        </div>
+        <figure class="chart" data-chart data-goal="100" data-goal-label="100%" data-max="120" data-unit="%">
+          <table>
+            <caption>Net positive water progress, global total, %</caption>
+            <thead><tr><th scope="col">Year</th><th scope="col">Progress</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">2021</th><td>99</td></tr>
+              <tr><th scope="row">2022</th><td>107</td></tr>
+              <tr><th scope="row">2023</th><td>110</td></tr>
+              <tr><th scope="row">2024</th><td>106</td></tr>
+              <tr><th scope="row">2025</th><td>103</td></tr>
+            </tbody>
+          </table>
+        </figure>
+      </section>
 
-            <details class="timeline-card" role="listitem">
-              <summary>
-                <span class="card-year">2030</span>
-                <h3>Net positive water and zero waste goals shape operations</h3>
-                <div class="card-image-frame">
-                  <img
-                    src="assets/water-waste.svg"
-                    alt="Blue illustration combining water droplets, recycling arrows, and a circular systems motif."
-                  />
-                </div>
-                <p class="card-teaser">
-                  Water restoration and circular manufacturing move into the foreground.
-                </p>
-                <span class="card-hint">Hover or tap for more</span>
-              </summary>
-              <div class="card-panel">
-                <p>
-                  Intel's public 2030 sustainability direction emphasizes restoring
-                  more fresh water than it consumes and reducing waste through reuse,
-                  recycling, and landfill-diversion programs.
-                </p>
-              </div>
-            </details>
+      <section class="goal" aria-labelledby="g-scope12">
+        <div class="goal-text">
+          <p class="goal-due">Due 2040</p>
+          <h2 id="g-scope12">Net-zero Scope 1 and 2 emissions</h2>
+          <p class="status status-gap"><span class="status-mark" aria-hidden="true"></span>Rising since 2023: up 48% in two years.</p>
+          <p>
+            Intel reports absolute emissions 67% below their 2006 peak. Within the reported window,
+            though, emissions fell to 0.89 million tonnes in 2023, then climbed to 1.32 million in
+            2025, while energy use rose from 10.8 to 12.0 billion kWh. The 48% is computed here from
+            Intel's figures.
+          </p>
+        </div>
+        <figure class="chart" data-chart data-goal="0" data-goal-label="Goal: 0 by 2040" data-max="1.6" data-unit="" data-decimals="2">
+          <table>
+            <caption>Scope 1 and 2 emissions, market-based, million tonnes CO₂e</caption>
+            <thead><tr><th scope="col">Year</th><th scope="col">Emissions</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">2021</th><td>1.50</td></tr>
+              <tr><th scope="row">2022</th><td>1.53</td></tr>
+              <tr><th scope="row">2023</th><td>0.89</td></tr>
+              <tr><th scope="row">2024</th><td>1.20</td></tr>
+              <tr><th scope="row">2025</th><td>1.32</td></tr>
+            </tbody>
+          </table>
+        </figure>
+      </section>
 
-            <details class="timeline-card" role="listitem">
-              <summary>
-                <span class="card-year">2040</span>
-                <h3>Net-zero operations target pushes deeper decarbonization</h3>
-                <div class="card-image-frame">
-                  <img
-                    src="assets/net-zero-operations.svg"
-                    alt="Illustration of a low-emissions factory skyline with circular arrows and a rising line."
-                  />
-                </div>
-                <p class="card-teaser">
-                  Operational emissions reductions become a long-horizon manufacturing goal.
-                </p>
-                <span class="card-hint">Hover or tap for more</span>
-              </summary>
-              <div class="card-panel">
-                <p>
-                  The net-zero operations target points toward major changes in energy
-                  sourcing, process efficiency, and facility design across Intel's
-                  manufacturing environment.
-                </p>
-              </div>
-            </details>
-
-            <details class="timeline-card" role="listitem">
-              <summary>
-                <span class="card-year">2050</span>
-                <h3>Value-chain accountability extends beyond Intel's own campuses</h3>
-                <div class="card-image-frame">
-                  <img
-                    src="assets/value-chain.svg"
-                    alt="Illustration of connected supply-chain nodes surrounding a globe and leaf symbol."
-                  />
-                </div>
-                <p class="card-teaser">
-                  Long-term climate responsibility expands to suppliers and partners.
-                </p>
-                <span class="card-hint">Hover or tap for more</span>
-              </summary>
-              <div class="card-panel">
-                <p>
-                  A longer-range sustainability outlook depends on collaboration across
-                  manufacturing, logistics, and supplier relationships, not only direct
-                  emissions inside Intel facilities.
-                </p>
-              </div>
-            </details>
-          </div>
+      <section class="goal goal-open" aria-labelledby="g-scope3">
+        <div class="goal-text">
+          <p class="goal-due">Due 2050</p>
+          <h2 id="g-scope3">Net-zero upstream Scope 3</h2>
+          <p class="status status-open"><span class="status-mark" aria-hidden="true"></span>No progress number published yet.</p>
+          <p>
+            Upstream Scope 3 covers emissions in Intel's supply chain. The 2025-26 summary reports no
+            figure for it; in 2026 Intel is asking its top suppliers to submit validated reduction
+            goals and plans.
+          </p>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer" id="footer">
+    <section class="method" aria-labelledby="method-heading">
+      <div class="method-inner">
+        <h2 id="method-heading">How this was checked</h2>
+        <ul>
+          <li>
+            Every yearly figure comes from the performance data table in Intel's
+            <a href="https://csrreportbuilder.intel.com/pdfbuilder/pdfs/CSR-2025-26-Executive-Summary.pdf#page=9">2025-26 Corporate Responsibility Report executive summary</a>.
+            Goal definitions come from its footnotes.
+          </li>
+          <li>
+            The 2020 goal date comes from Intel's
+            <a href="https://www.intc.com/news-events/press-releases/detail/1077/intel-editorial-closing-out-a-decade-of-corporate">May 14, 2020 editorial announcing RISE</a>.
+          </li>
+          <li>The only computed number is the 48% rise in emissions: (1.32 ÷ 0.89 − 1) × 100 = 48.3%. Everything else is as Intel reports it, not independently audited.</li>
+          <li>Emissions are Scope 1 plus market-based Scope 2, the method Intel uses in its table.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="site-footer">
       <p>
-        Educational project only. This is an independent student assignment and is not
-        an official Intel website.
+        Independent student project; not affiliated with or endorsed by Intel. It began as a class
+        assignment; the graded version is preserved at the
+        <a href="https://github.com/SRao189/intel-sustainability-timeline/tree/submitted-original"><code>submitted-original</code></a> tag.
       </p>
     </footer>
 
