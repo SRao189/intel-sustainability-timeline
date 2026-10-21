@@ -53,7 +53,8 @@ function drawChart(figure) {
   const label = figure.dataset.goalLabel;
   if (goal > 0) {
     const gy = y(goal);
-    svg.append(el("line", { class: "goal-line", x1: plot.left, x2: narrow ? plot.right : plot.right + 8, y1: gy, y2: gy }));
+    // Under the value labels, so their halo keeps a passing goal line from striking through a number.
+    svg.insertBefore(el("line", { class: "goal-line", x1: plot.left, x2: narrow ? plot.right : plot.right + 8, y1: gy, y2: gy }), labels);
   }
   // A goal of zero is the baseline itself, so it gets a label but no second line.
   if (label) {
