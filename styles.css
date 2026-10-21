@@ -136,6 +136,56 @@ h1 {
   text-wrap: pretty;
 }
 
+/* Hero top: headline beside the wafer. */
+
+.hero-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 26rem);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.wafer {
+  margin: 0;
+}
+
+.wafer-stage {
+  aspect-ratio: 1;
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-out);
+}
+
+.wafer-stage.is-ready {
+  opacity: 1;
+}
+
+.wafer-stage.is-unavailable {
+  display: none;
+}
+
+.wafer-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.wafer figcaption {
+  max-width: 34ch;
+  margin-top: 0.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 860px) {
+  .hero-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wafer {
+    max-width: 19rem;
+  }
+}
+
 /* Ruler: the deadlines, to scale. */
 
 .ruler {

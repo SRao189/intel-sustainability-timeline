@@ -25,12 +25,23 @@
 
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero-inner">
-        <h1 id="hero-heading">Intel set five climate deadlines. One is nearly met.</h1>
-        <p class="hero-lead">
-          In May 2020 Intel set public goals for clean power, water and waste, then added net-zero
-          emissions deadlines for 2040 and 2050. Below, each goal sits against Intel's own reported
-          numbers for 2021–2025.
-        </p>
+        <div class="hero-top">
+          <div class="hero-copy">
+            <h1 id="hero-heading">Intel set five climate deadlines. One is nearly met.</h1>
+            <p class="hero-lead">
+              In May 2020 Intel set public goals for clean power, water and waste, then added net-zero
+              emissions deadlines for 2040 and 2050. Below, each goal sits against Intel's own reported
+              numbers for 2021–2025.
+            </p>
+          </div>
+          <figure class="wafer" aria-labelledby="wafer-caption">
+            <div class="wafer-stage"><canvas class="wafer-canvas" aria-hidden="true"></canvas></div>
+            <figcaption id="wafer-caption">
+              <strong>The one nearly met.</strong> 100 dies, one per percent of Intel's electricity use.
+              99 are lit: the share from renewable sources in 2025. The goal is 100% by 2030.
+            </figcaption>
+          </figure>
+        </div>
 
         <figure class="ruler" aria-labelledby="ruler-caption">
           <div class="ruler-scroll" tabindex="0" role="region" aria-label="Timeline, scrolls sideways on small screens">
@@ -248,5 +259,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script type="module" src="wafer.js"></script>
   </body>
 </html>
