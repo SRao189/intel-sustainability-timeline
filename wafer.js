@@ -6,7 +6,7 @@ const DIES = 100;
 
 const stage = document.querySelector(".wafer-stage");
 const canvas = document.querySelector(".wafer-canvas");
-const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
 // Load three.js after first paint so the page's text and charts never wait on it.
 const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 200));
@@ -15,6 +15,15 @@ if (stage && canvas) idle(() => start().catch(() => stage.classList.add("is-unav
 async function start() {
   const THREE = await import("./assets/vendor/three.module.min.js");
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  try {
+    build(THREE, renderer);
+  } catch (err) {
+    renderer.dispose();
+    throw err;
+  }
+}
+
+function build(THREE, renderer) {
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
@@ -39,6 +48,12 @@ async function start() {
   panel(0xffb02e, 5, 2.4, [-4, 1.5, -2], [0, Math.PI / 3, 0]);
   panel(0x9fb4ff, 3, 2, [4, 1, 3], [0, -Math.PI / 2.5, 0]);
   scene.environment = pmrem.fromScene(room, 0.03).texture;
+  // The room only exists to bake reflections; free it and the generator once baked.
+  room.traverse((o) => {
+    o.geometry?.dispose();
+    o.material?.dispose();
+  });
+  pmrem.dispose();
 
   const wafer = new THREE.Group();
   wafer.rotation.x = 0.08;
@@ -117,27 +132,33 @@ async function start() {
   new ResizeObserver(resize).observe(stage);
   resize();
 
-  if (still) {
+  // Final state: all 99 lit, still. Used for reduced motion, including when it is switched on mid-visit.
+  function settle() {
+    cancelAnimationFrame(rafId);
+    rafId = 0;
     lit.count = LIT;
-    wafer.rotation.y = -0.5;
     render();
-    stage.classList.add("is-ready");
-    return;
   }
 
   // Probe sequence: dies light one by one up to 99, then the wafer turns slowly.
-  lit.count = 0;
+  let rafId = 0;
   let visible = true;
   let probeStart = null;
   let last = performance.now();
   let tiltX = 0;
   let tiltTarget = 0;
 
+  // One loop at most: every wake-up goes through schedule().
+  const schedule = () => {
+    if (!rafId && visible && !document.hidden && !reduceMotion.matches) rafId = requestAnimationFrame(frame);
+  };
+
   new IntersectionObserver(([e]) => {
     visible = e.isIntersecting;
-    if (visible) requestAnimationFrame(frame);
+    schedule();
   }).observe(stage);
-  document.addEventListener("visibilitychange", () => !document.hidden && visible && requestAnimationFrame(frame));
+  document.addEventListener("visibilitychange", schedule);
+  reduceMotion.addEventListener("change", () => (reduceMotion.matches ? settle() : schedule()));
 
   if (matchMedia("(pointer: fine)").matches) {
     addEventListener("pointermove", (e) => {
@@ -147,15 +168,8 @@ async function start() {
 
   stage.classList.add("is-ready");
 
-  let running = false;
   function frame(now) {
-    if (running && now === undefined) return;
-    if (!visible || document.hidden) {
-      running = false;
-      return;
-    }
-    running = true;
-    now ??= performance.now();
+    rafId = 0;
     const dt = Math.min(0.05, (now - last) / 1000);
     last = now;
 
@@ -167,7 +181,14 @@ async function start() {
     tiltX += (tiltTarget - tiltX) * 0.06;
     wafer.rotation.x = 0.08 + tiltX;
     render();
-    requestAnimationFrame(frame);
+    schedule();
   }
-  requestAnimationFrame(frame);
+
+  if (reduceMotion.matches) {
+    wafer.rotation.y = -0.5;
+    settle();
+  } else {
+    lit.count = 0;
+    schedule();
+  }
 }
