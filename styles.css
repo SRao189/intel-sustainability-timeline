@@ -342,6 +342,60 @@ h2 {
   border-radius: 50%;
 }
 
+.cleanroom-study {
+  margin: 1.5rem 0 0;
+  max-width: 32rem;
+}
+
+.cleanroom-study-frame {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--rule-strong);
+  background: var(--ink);
+}
+
+.cleanroom-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  max-height: 18rem;
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.cleanroom-toggle {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  appearance: none;
+  border: 1px solid oklch(0.985 0 0 / 0.35);
+  background: oklch(0.2 0.015 70 / 0.88);
+  color: var(--paper);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.cleanroom-toggle:hover {
+  border-color: var(--amber);
+}
+
+html:not(.js-ready) .cleanroom-toggle {
+  display: none;
+}
+
+.cleanroom-study figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.84375rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
 /* Charts: drawn by script.js from the table inside each figure. */
 
 .chart {

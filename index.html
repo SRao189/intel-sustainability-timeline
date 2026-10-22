@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'none'; upgrade-insecure-requests" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; frame-src 'none'; upgrade-insecure-requests" />
     <title>Intel's Climate Promises, Checked</title>
     <meta
       name="description"
@@ -121,6 +121,27 @@
             renewable electricity at its U.S., Europe, Israel, Malaysia, Vietnam and China
             locations, with Costa Rica at 97%.
           </p>
+          <figure class="cleanroom-study" aria-labelledby="cleanroom-study-caption" data-cleanroom-study>
+            <div class="cleanroom-study-frame">
+              <video
+                class="cleanroom-video"
+                data-cleanroom-video
+                poster="assets/media/intel-cleanroom-poster.jpg"
+                preload="metadata"
+                muted
+                loop
+                playsinline
+                width="1280"
+                height="720"
+              >
+                <source src="assets/media/intel-cleanroom-loop.mp4" type="video/mp4" />
+              </video>
+              <button type="button" class="cleanroom-toggle" data-cleanroom-toggle aria-pressed="false">Pause motion</button>
+            </div>
+            <figcaption id="cleanroom-study-caption">
+              Illustrative cleanroom study — wafer data above is drawn from the 2025–26 report.
+            </figcaption>
+          </figure>
         </div>
         <figure class="chart" data-chart data-goal="100" data-goal-label="Goal: 100%" data-max="100" data-unit="%">
           <table>
@@ -246,6 +267,7 @@
           </li>
           <li>The only computed number is the 48% rise in emissions: (1.32 ÷ 0.89 − 1) × 100 = 48.3%. Everything else is as Intel reports it, not independently audited.</li>
           <li>Emissions are Scope 1 plus market-based Scope 2, the method Intel uses in its table.</li>
+          <li>The cleanroom motion study in the renewable electricity section is illustrative; all chart bars and the 99-of-100 hero wafer come from the published performance table.</li>
         </ul>
       </div>
     </section>

@@ -1,5 +1,6 @@
 // Draws a bar chart from the <table> inside each figure[data-chart].
 // The table stays in the page for screen readers and no-JS readers; the chart is decoration over it.
+document.documentElement.classList.add("js-ready");
 const SVG_NS = "http://www.w3.org/2000/svg";
 const LABEL_ROOM = 124, NARROW = 440;
 
@@ -94,3 +95,54 @@ if ("IntersectionObserver" in window) {
   }, { threshold: 0.35 });
   charts.forEach((c) => io.observe(c));
 }
+
+const cleanroomStudy = document.querySelector("[data-cleanroom-study]");
+const cleanroomVideo = document.querySelector("[data-cleanroom-video]");
+const cleanroomToggle = document.querySelector("[data-cleanroom-toggle]");
+const cleanroomMotionQuery = matchMedia("(prefers-reduced-motion: no-preference)");
+let cleanroomOverride = null; // null | "play" | "pause"
+let cleanroomInView = false;
+
+function isCleanroomPlaying() {
+  if (cleanroomOverride === "play") return true;
+  if (cleanroomOverride === "pause") return false;
+  return cleanroomMotionQuery.matches;
+}
+
+function syncCleanroomPlayback() {
+  if (!cleanroomVideo) return;
+  const enabled = isCleanroomPlaying();
+  if (enabled && cleanroomInView) {
+    cleanroomVideo.play().catch(() => {});
+  } else {
+    cleanroomVideo.pause();
+  }
+  if (cleanroomToggle) {
+    const paused = !enabled;
+    cleanroomToggle.textContent = paused ? "Play motion" : "Pause motion";
+    cleanroomToggle.setAttribute("aria-pressed", paused ? "true" : "false");
+  }
+}
+
+if (cleanroomToggle) {
+  cleanroomToggle.addEventListener("click", () => {
+    cleanroomOverride = isCleanroomPlaying() ? "pause" : "play";
+    syncCleanroomPlayback();
+  });
+}
+
+cleanroomMotionQuery.addEventListener("change", () => {
+  syncCleanroomPlayback();
+});
+
+if (cleanroomStudy && "IntersectionObserver" in window) {
+  const cleanroomIO = new IntersectionObserver(
+    ([entry]) => {
+      cleanroomInView = Boolean(entry && entry.isIntersecting);
+      syncCleanroomPlayback();
+    },
+    { threshold: 0.25 },
+  );
+  cleanroomIO.observe(cleanroomStudy);
+}
+syncCleanroomPlayback();
